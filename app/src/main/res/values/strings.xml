@@ -15,4 +15,5 @@
     <string name="x_liked">%1$d liked</string>
     <string name="x_shared">%1$d shared</string>
     <string name="not_checked_yet">Not checked yet</string>
+    <string name="no_user_found_for_platform">No user found for platform %1s!</string>
 </resources>
