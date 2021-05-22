@@ -6,10 +6,13 @@
     <string name="username">Username</string>
     <string name="check">Check</string>
     <string name="social_media_information">Social media information</string>
+    <string name="like_x">Like (%1d)</string>
     <string name="like">Like</string>
     <string name="share">Share</string>
+    <string name="share_x">Share (%1d)</string>
     <string name="new_posts">new posts</string>
-    <string name="x_new">%1$d new</string>
+    <string name="last_checked">last checked %1s</string>
     <string name="x_liked">%1$d liked</string>
     <string name="x_shared">%1$d shared</string>
+    <string name="not_checked_yet">Not checked yet</string>
 </resources>
