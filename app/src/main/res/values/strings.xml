@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">Girlfriend Supporter</string>
     <string name="girlfriend_supporter">Girlfriend supporter</string>
+    <string name="instagram">Instagram</string>
+    <string name="tiktok">TikTok</string>
+    <string name="username">Username</string>
+    <string name="check">Check</string>
+    <string name="social_media_information">Social media information</string>
+    <string name="like">Like</string>
+    <string name="share">Share</string>
+    <string name="new_posts">new posts</string>
+    <string name="x_new_posts">%1$d new posts</string>
 </resources>
