@@ -9,5 +9,7 @@
     <string name="like">Like</string>
     <string name="share">Share</string>
     <string name="new_posts">new posts</string>
-    <string name="x_new_posts">%1$d new posts</string>
+    <string name="x_new">%1$d new</string>
+    <string name="x_liked">%1$d liked</string>
+    <string name="x_shared">%1$d shared</string>
 </resources>

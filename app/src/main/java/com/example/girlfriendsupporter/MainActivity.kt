@@ -2,6 +2,7 @@ package com.example.girlfriendsupporter
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -25,18 +26,34 @@ class MainActivity : AppCompatActivity() {
             tiktokUsername.isEnabled = tiktokCheckbox.isChecked
         }
 
-        val checkTestCount = 5
+        val likeButton = findViewById<Button>(R.id.button_like)
+        val shareButton = findViewById<Button>(R.id.button_share)
         val checkButton = findViewById<Button>(R.id.button_check)
         checkButton.setOnClickListener {
-            val buttonLike = findViewById<Button>(R.id.button_like)
-            buttonLike.isEnabled = checkTestCount > 0
-            val buttonShare = findViewById<Button>(R.id.button_share)
-            buttonShare.isEnabled = checkTestCount > 0
+            val checkedCount = 5
+            likeButton.isEnabled = checkedCount > 0
+            shareButton.isEnabled = checkedCount > 0
 
-            val textPostsFound = findViewById<TextView>(R.id.textview_posts_found)
-            textPostsFound.isVisible = true
-            textPostsFound.text = getString(R.string.x_new_posts, checkTestCount)
+            showNumberOfAffectedPosts(R.id.textview_posts_found, R.string.x_new, checkedCount)
         }
+
+        likeButton.setOnClickListener {
+            val likedCount = 4
+            showNumberOfAffectedPosts(R.id.textview_posts_liked, R.string.x_liked, likedCount)
+            likeButton.isEnabled = false
+        }
+
+        shareButton.setOnClickListener {
+            val sharedCount = 4
+            showNumberOfAffectedPosts(R.id.textview_posts_shared, R.string.x_shared, sharedCount)
+            shareButton.isEnabled = false
+        }
+    }
+
+    private fun showNumberOfAffectedPosts(textViewId: Int, textId: Int, numberOfAffectedPosts: Int) {
+        val textAffectedPosts = findViewById<TextView>(textViewId)
+        textAffectedPosts.isVisible = true
+        textAffectedPosts.text = getString(textId, numberOfAffectedPosts)
     }
 
 }
