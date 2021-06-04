@@ -20,11 +20,11 @@
         android:inputType="textPersonName"
         android:autofillHints="@string/username"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/checkbox_instagram"
+        app:layout_constraintStart_toEndOf="@+id/textview_instagram"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <CheckBox
-        android:id="@+id/checkbox_tiktok"
+    <TextView
+        android:id="@+id/textview_tiktok"
         android:layout_width="129dp"
         android:layout_height="41dp"
         android:layout_marginStart="16dp"
@@ -32,10 +32,10 @@
         android:text="@string/tiktok"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkbox_instagram" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_instagram" />
 
-    <CheckBox
-        android:id="@+id/checkbox_instagram"
+    <TextView
+        android:id="@+id/textview_instagram"
         android:layout_width="129dp"
         android:layout_height="41dp"
         android:layout_marginStart="16dp"
@@ -57,7 +57,7 @@
         android:inputType="textPersonName"
         android:autofillHints="@string/username"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/checkbox_tiktok"
+        app:layout_constraintStart_toEndOf="@+id/textview_tiktok"
         app:layout_constraintTop_toBottomOf="@+id/edittext_instagram_user" />
 
     <Button

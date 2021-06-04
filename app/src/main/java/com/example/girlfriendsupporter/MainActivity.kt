@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setupSocialMedia()
         setupButtons()
 
     }
@@ -86,22 +85,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupSocialMedia() {
-        val checkButton = findViewById<Button>(R.id.button_check)
-        val instaCheckbox = findViewById<CheckBox>(R.id.checkbox_instagram)
-        val tiktokCheckbox = findViewById<CheckBox>(R.id.checkbox_tiktok)
-
-        instaCheckbox.setOnClickListener {
-            val instaUsername = findViewById<EditText>(R.id.edittext_instagram_user)
-            instaUsername.isEnabled = instaCheckbox.isChecked
-            checkButton.isEnabled = instaCheckbox.isChecked or tiktokCheckbox.isChecked
-        }
-
-        tiktokCheckbox.setOnClickListener {
-            val tiktokUsername = findViewById<EditText>(R.id.edittext_tiktok_user)
-            tiktokUsername.isEnabled = tiktokCheckbox.isChecked
-            checkButton.isEnabled = instaCheckbox.isChecked or tiktokCheckbox.isChecked
-        }
-    }
-
-}
+ }
