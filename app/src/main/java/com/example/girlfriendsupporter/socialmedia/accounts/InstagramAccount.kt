@@ -26,11 +26,35 @@ class InstagramAccount(username: String) : SocialMediaAccount(username) {
         return countNewPosts
     }
 
-    override fun like() {
-        return
+    private fun likePost(postID: String) {
+        val postPage = URL("https://www.instagram.com/p/$postID")
+        val content = postPage.readText(Charset.forName("ISO-8859-1"))
+        val buttonPattern = Pattern.compile("button")
+        val matcher = buttonPattern.matcher(content)
+
+        while (matcher.find()) {
+            val likeButton = matcher.group(1)
+            clickOnButton(likeButton)
+        }
     }
 
-    override fun share() {
-        return
+    private fun clickOnButton(button: String) {
+        // todo
+    }
+
+    override fun like(): Int {
+        // loops through the posts and clicks on the first button, which hopefully is the "like"-button
+        postIds.forEach {
+            likePost(it)
+        }
+        return postIds.count()
+    }
+
+    override fun toString(): String {
+        return "Instagram: $username"
+    }
+
+    override fun share(): Int {
+        return postIds.count()
     }
 }

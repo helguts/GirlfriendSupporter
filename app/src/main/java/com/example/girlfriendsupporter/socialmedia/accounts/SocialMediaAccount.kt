@@ -4,6 +4,6 @@ abstract class SocialMediaAccount(username: String) {
     protected val username = username
 
     abstract fun check(): Int
-    abstract fun like()
-    abstract fun share()
+    abstract fun like(): Int
+    abstract fun share(): Int
 }

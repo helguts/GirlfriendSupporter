@@ -6,12 +6,16 @@ class TikTokAccount(username: String) : SocialMediaAccount(username) {
         return 5
     }
 
-    override fun like() {
-        return
+    override fun like(): Int {
+        return 0
     }
 
-    override fun share() {
-        return
+    override fun share(): Int {
+        return 0
+    }
+
+    override fun toString(): String {
+        return "TikTok: $username"
     }
 
 }
