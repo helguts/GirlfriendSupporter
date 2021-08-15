@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
@@ -73,20 +74,32 @@ class MainActivity : AppCompatActivity() {
 
         checkButton.setOnClickListener {
             updateSocialMediaOptions()
+            var newPostsCount = 0
             doAsync {
-                val newPostsCount = supporter.checkForNewPosts()
+                var exception: Exception? = null
+                try {
+                    newPostsCount = supporter.checkForNewPosts()
+                } catch (e: UserNotFoundOnPlatformException)
+                {
+                    exception = e
+                }
                 uiThread {
-                    likeButton.isEnabled = newPostsCount > 0
-                    likeButton.text = if (newPostsCount > 0) getString(R.string.like_x,
-                        newPostsCount) else getString(R.string.like)
-                    shareButton.isEnabled = newPostsCount > 0
-                    shareButton.text = if (newPostsCount > 0) getString(R.string.share_x,
-                        newPostsCount) else getString(R.string.share)
+                    if (exception != null) {
+                        Toast.makeText(it, exception.message, Toast.LENGTH_SHORT).show()
+                    }
+                    else {
+                        likeButton.isEnabled = newPostsCount > 0
+                        likeButton.text = if (newPostsCount > 0) getString(R.string.like_x,
+                            newPostsCount) else getString(R.string.like)
+                        shareButton.isEnabled = newPostsCount > 0
+                        shareButton.text = if (newPostsCount > 0) getString(R.string.share_x,
+                            newPostsCount) else getString(R.string.share)
 
-                    val textLastChecked = findViewById<TextView>(R.id.textview_last_checked)
-                    val formatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)
-                    val currentTime = LocalDateTime.now().format(formatter)
-                    textLastChecked.text = getString(R.string.last_checked, currentTime)
+                        val textLastChecked = findViewById<TextView>(R.id.textview_last_checked)
+                        val formatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)
+                        val currentTime = LocalDateTime.now().format(formatter)
+                        textLastChecked.text = getString(R.string.last_checked, currentTime)
+                    }
                 }
             }
         }
